@@ -1,10 +1,18 @@
+import RestaurantsContainer from "./components/RestaurantsContainer";
+import { restaurants } from "./data/data.js";
 import "./App.css";
-import RestaurantsContainer from "./components/RestaurantsContainer.jsx";
+
+import { useState } from "react";
+
+
 function App() {
+  
+  {/*passing a copy of the restaurant data to the RestaurantContainer*/}
+  const [restaurantState, setRestaurants] = useState([...restaurants])
+
   return (
     <div className="App">
-      {/*importing and rendering the container */}
-      <RestaurantsContainer />
+      <RestaurantsContainer restaurants = {restaurantState}/>
     </div>
   );
 }
